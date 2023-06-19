@@ -6,7 +6,7 @@ using namespace std;
 
 //https://www.chessprogramming.org/Alpha-Beta
 int AB::minn(State* state, int depth, int a, int b){
-    if(depth == 0) return state->evaluate();
+    if(depth == 0) return state->evaluate() * (-1);
     state->get_legal_actions();
     for(auto it : state->legal_actions){
         State* next_state = state->next_state(it);

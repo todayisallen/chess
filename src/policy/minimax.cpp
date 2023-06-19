@@ -43,7 +43,7 @@ int MiniMax::maxx(State *state, int depth){
 }
 
 int MiniMax::minn(State *state, int depth){
-    if (depth == 0) return state->evaluate();
+    if (depth == 0) return state->evaluate()*(-1);
     int val = INT_MAX;
     state->get_legal_actions();
 
