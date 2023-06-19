@@ -15,9 +15,9 @@ Move MiniMax::get_move(State *state, int depth){
     int max = INT_MIN;
     auto actions = state->legal_actions;
     for(auto it : actions){
-        State* n_state = state->next_state(it);
-        n_state->get_legal_actions();
-        int val = minn(n_state, depth - 1);
+        State* next_state = state->next_state(it);
+        next_state->get_legal_actions();
+        int val = minn(next_state, depth - 1);
         if(val > max){
             max = val;
             best = it;
@@ -36,8 +36,8 @@ int MiniMax::maxx(State *state, int depth){
     
     auto actions = state->legal_actions;
     for(auto it: actions){
-        State* n_state = state->next_state(it);
-        val = std::max(val, minn(n_state, depth - 1));
+        State* next_state = state->next_state(it);
+        val = std::max(val, minn(next_state, depth - 1));
     }
     return val;
 }
@@ -49,8 +49,8 @@ int MiniMax::minn(State *state, int depth){
 
     auto actions = state->legal_actions;
     for(auto it: actions){
-        State* n_state = state->next_state(it);
-        val = std::min(val, maxx(n_state, depth - 1));
+        State* next_state = state->next_state(it);
+        val = std::min(val, maxx(next_state, depth - 1));
     }
     return val;
 }
