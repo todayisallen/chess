@@ -13,7 +13,19 @@
  */
 int State::evaluate(){
   // [TODO] design your own evaluation function
-  return 0;
+  int val = 0;
+  int chess_w[7] = {0, 2, 6, 7, 8, 20, 100};
+  for(int i = 0; i < BOARD_H; i++){
+    for(int j = 0; j < BOARD_W; j++){
+      int w = board.board[player][i][j];
+      val -= chess_w[w];
+      w = board.board[1 - player][i][j];
+      val += chess_w[w];
+    }  
+  }
+  
+  
+  return val;
 }
 
 
@@ -207,7 +219,7 @@ void State::get_legal_actions(){
       }
     }
   }
-  std::cout << "\n";
+  //std::cout << "\n";
   this->legal_actions = all_actions;
 }
 
