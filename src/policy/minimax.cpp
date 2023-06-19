@@ -4,8 +4,6 @@
 #include<climits>
 using namespace std;
 
-int maxx(State *state, int depth);
-int minn(State *state, int depth);
 
 Move MiniMax::get_move(State *state, int depth){
     if(!state->legal_actions.size())
