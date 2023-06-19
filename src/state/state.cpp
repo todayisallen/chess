@@ -14,7 +14,7 @@
 int State::evaluate(){
   // [TODO] design your own evaluation function
   int val = 0;
-  int chess_w[7] = {0, 2, 6, 7, 8, 20, 100};
+  int chess_w[7] = {0, 1, 3, 3, 5, 9, 200};
   for(int i = 0; i < BOARD_H; i++){
     for(int j = 0; j < BOARD_W; j++){
       int w = board.board[player][i][j];
