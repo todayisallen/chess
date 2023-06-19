@@ -14,13 +14,24 @@
 int State::evaluate(){
   // [TODO] design your own evaluation function
   int val = 0;
-  int chess_w[7] = {0, 1, 3, 3, 5, 9, 200};
   for(int i = 0; i < BOARD_H; i++){
     for(int j = 0; j < BOARD_W; j++){
       int w = board.board[player][i][j];
-      val -= chess_w[w];
+      if(w == 1) val -= 1;
+      else if(w == 2) val -= 3;
+      else if(w == 3) val -= 3;
+      else if(w == 4) val -= 5;
+      else if(w == 5) val -= 9;
+      else if(w == 6) val -= 200;
+      else val -= 0;
       w = board.board[1 - player][i][j];
-      val += chess_w[w];
+      if(w == 1) val += 1;
+      else if(w == 2) val += 3;
+      else if(w == 3) val += 3;
+      else if(w == 4) val += 5;
+      else if(w == 5) val += 9;
+      else if(w == 6) val += 200;
+      else val += 0;
     }  
   }
   
